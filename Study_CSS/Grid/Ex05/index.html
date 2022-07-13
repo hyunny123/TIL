@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      body {
+        color: #000;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        text-align: center;
+      }
+      #content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        /* 속성 그리드 자동행 : 행높이 설정 최소높이 150px*/
+        grid-auto-rows: minmax(150px, auto);
+        grid-gap: 10px;
+        max-width: 960px;
+        margin: 0 auto;
+        /* end 사용하여 끝에 정렬할 수 있다. */
+        /* align-items: center;
+        justify-items: start; */
+      }
+      #content div {
+        background-color: lightcyan;
+        padding: 30px;
+      }
+      #content div:nth-child(even) {
+        background-color: lightpink;
+      }
+      .one {
+        /* 행의 끝에 정렬할수도 있다. 열의 끝,행의 끝에 정렬 */
+        justify-self: end;
+        align-self: end;
+      }
+      .two {
+        align-self: center;
+        justify-self: center;
+      }
+      .three {
+        align-self: start;
+        justify-self: start;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <div class="one">1</div>
+      <div class="two">2</div>
+      <div class="three">3</div>
+      <div class="four">4</div>
+      <div class="five">5</div>
+      <div class="six">6</div>
+    </div>
+  </body>
+</html>
