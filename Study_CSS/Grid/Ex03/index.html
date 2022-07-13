@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      body {
+        color: #000;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        text-align: center;
+      }
+      #content {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(3, minmax(150px, auto));
+        grid-column-gap: 10px;
+        grid-row-gap: 10px;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      #content div {
+        background-color: lightcyan;
+        padding: 30px;
+      }
+      #content div:nth-child(even) {
+        background-color: lightpink;
+      }
+      .one {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <div class="one">1</div>
+      <div class="two">2</div>
+      <div class="three">3</div>
+      <div class="four">4</div>
+      <div class="five">5</div>
+      <div class="six">6</div>
+    </div>
+  </body>
+</html>
