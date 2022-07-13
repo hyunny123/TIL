@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+      body {
+        color: #000;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        text-align: center;
+      }
+      #content {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        max-width: 960px;
+        margin: 0 auto;
+      }
+      #content div {
+        background-color: lightcyan;
+        padding: 30px;
+      }
+      #content div:nth-child(even) {
+        background-color: lightpink;
+      }
+      .nested {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 10px;
+        /* grid-column: 1/4; */
+        grid-column: span 3;
+      }
+      .nested p {
+        border: 1px solid #fff;
+        padding: 20px;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div class="nested">
+        <p>1</p>
+        <p>2</p>
+        <p>3</p>
+        <p>4</p>
+      </div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </body>
+</html>
