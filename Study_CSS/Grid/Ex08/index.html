@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid Area</title>
+    <style>
+      body {
+        color: #000;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        text-align: center;
+      }
+      #content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: minmax(100px, auto);
+        grid-gap: 10px;
+        max-width: 960px;
+        margin: 0 auto;
+        grid-template-areas:
+          "header header header header"
+          "aside . main main"
+          "nav . main main"
+          "section section section section"
+          "section section section section"
+          "footer footer footer footer";
+      }
+      #content > * {
+        background-color: lightcyan;
+        padding: 30px;
+      }
+      header {
+        grid-area: header;
+      }
+      aside {
+        grid-area: aside;
+      }
+      main {
+        grid-area: main;
+      }
+      section {
+        grid-area: section;
+      }
+      nav {
+        grid-area: nav;
+      }
+      footer {
+        grid-area: footer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <header>Header</header>
+      <main>Main</main>
+      <section>Section</section>
+      <aside>Aside</aside>
+      <nav>Nav</nav>
+      <footer>Footer</footer>
+    </div>
+  </body>
+</html>
