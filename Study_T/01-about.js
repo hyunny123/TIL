@@ -1,3 +1,5 @@
+//설정
+//terminal tsc -w STUDY_T folder로 들어와서 하기
 //간단한 변수 타입지정가능
 var 이름문자열 = "kim";
 var 이름배열 = ["kim", "lee"];
