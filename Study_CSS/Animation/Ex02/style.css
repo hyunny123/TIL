@@ -49,14 +49,16 @@ body {
   top: -30px;
   animation-name: drive;
   /* Keyframe 시간 */
-  animation-duration: 3s;
-  animation-fill-mode: both;
+  /* animation-duration: 3s; */
+  /* animation-fill-mode: both; */
   /* animation-delay: 2s; */
   /* 계속 순환 animation*/
-  animation-iteration-count: infinite;
+  /* animation-iteration-count: infinite; */
   /* 완화 빠름 완화 */
   /* animation-timing-function: ease-in-out; */
-  animation-timing-function: cubic-bezier(0, 0.77, 1, 0.28);
+  /* animation-timing-function: cubic-bezier(0, 0.77, 1, 0.28); */
+  /* chaining */
+  animation: drive 3s both infinite linear, jump 0.3s 1.2s ease;
 }
 
 .luigi {
@@ -103,5 +105,17 @@ body {
   }
   to {
     left: 100%;
+  }
+}
+
+@keyframes jump {
+  0% {
+    top: -40px;
+  }
+  50% {
+    top: 100px;
+  }
+  100% {
+    top: -40px;
   }
 }
