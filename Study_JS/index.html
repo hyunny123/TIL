@@ -7,49 +7,7 @@
     <title>Document</title>
   </head>
   <body>
-    hi
-    <script>
-      function fruit(a) {
-        this.sweet = a;
-        this.sour = "low";
-      }
-      //this는 fruit로부터 생성되는 객체(= instance)
-      let apple = new fruit("high");
-      let lemon = new fruit("low");
-
-      fruit.prototype.name = "kim";
-      //apple.name = "kim"
-      //지정해놓은건 없지만 자식들은 부모의 유전자를 가져와서 쓸수 있다.
-      //apple이 name을 가지고 있지 않으면 apple 부모유전자 없어짐.
-      //<object에서 자료 뽑을떄 일어나는일>
-      //1. 직접 자료를 가지고 있으면 그거 출력
-      //2. 없으면 부모유전자까지 뒤짐
-      //3. 없으면 부모의 부모유전자까지 계속 =>prototype chain
-
-      let arr = [4, 2, 1];
-      let arr1 = new Array(4, 2, 1);
-      arr.sort();
-      arr.length;
-
-      Array.prototype.x = function () {};
-      let arr = [4, 2, 1];
-
-      class Fruits {
-        constructor(a) {
-          this.sweet = a;
-          this.sour = "low";
-        }
-      }
-      new Fruits();
-
-      // let apple ={
-      //   sweet:"high",
-      //   sour:"medium"
-      // }
-      // let lemon ={
-      //   sweet:"low",
-      //   sour:"high"
-      // }
-    </script>
+    helloworld
+    <script src="index.js"></script>
   </body>
 </html>
