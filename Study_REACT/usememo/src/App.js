@@ -1,46 +1,39 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useCallback } from "react";
+import Box from "./Box";
 
 const App = () => {
-  const [uploadData, setUploadData] = useState({
-    file: null,
-  });
-  const uploadFile = (e) => {
-    console.log(e.target.files);
+  const [size, setSize] = useState(100);
+  const [isDark, setIsDark] = useState(false);
 
-    setUploadData(e.target.files);
-  };
+  const createBoxStyle = useCallback(() => {
+    return {
+      backgroundColor: `skyblue`,
+      width: `${size}px`,
+      height: `${size}px`,
+    };
+  }, [size]);
 
-  const handleUpload = (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("file:", uploadData[0]);
-    // formData.append("file", e.target.files[0]);
-    axios
-      .post({
-        url: "EXPRESS JS POST REQUEST PATH",
-        data: formData,
-        config: {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        },
-      })
-      .then((res) => {
-        console.log(res);
-      });
-  };
   return (
-    <div>
-      <label>사진을 골라주세여</label>
+    <div
+      style={{
+        background: isDark ? "black" : "white",
+      }}
+    >
       <input
-        type="file"
-        label="Upload"
-        accept="image/*"
-        onChange={uploadFile}
-        //   ref={(ref) => (this.fileUpload = ref)}
+        type="number"
+        value={size}
+        onChange={(e) => {
+          setSize(e.target.value);
+        }}
       />
-      <button onClick={handleUpload}>업로드</button>
+      <button
+        onClick={() => {
+          setIsDark(!isDark);
+        }}
+      >
+        change theme
+      </button>
+      <Box createBoxStyle={createBoxStyle} />
     </div>
   );
 };
