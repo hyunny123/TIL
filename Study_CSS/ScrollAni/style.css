@@ -1,0 +1,32 @@
+.header {
+  padding-top: 20vh;
+  background-color: #000;
+}
+/* storke: 선색 속성  width:선 굵기 속성 */
+.path {
+  fill: none;
+  stroke: #fff;
+  stroke-width: 3px;
+}
+
+.path2 {
+  stroke: #000;
+}
+
+.path3 {
+  /* fill: none; */
+  stroke: #fff;
+  stroke-width: 3px;
+}
+.content2 {
+  background-color: #000;
+}
+
+.path4 {
+  stroke: #000;
+}
+
+.footer {
+  height: 30vh;
+  background-color: #000;
+}
