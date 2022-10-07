@@ -1,0 +1,61 @@
+body {
+  height: 100vh;
+  background-color: #000;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.box {
+  width: 100px;
+  height: 100px;
+  background-color: pink;
+  box-shadow: 5px 5px 20px 5px rgba(0, 0, 0, 0.68);
+}
+/* 안쪽 */
+.box1 {
+  width: 100px;
+  height: 100px;
+  background-color: skyblue;
+  box-shadow: inset 5px 5px 20px 5px rgba(0, 0, 0, 0.68);
+}
+/* 여러개 겹치기 */
+.box2 {
+  width: 100px;
+  height: 100px;
+  background-color: #fff;
+  box-shadow: 5px 5px 20px 5px rgba(241, 239, 239, 0.68),
+    10px 10px 20px 5px rgba(44, 204, 92, 0.68),
+    inset 5px 5px 20px 5px rgba(238, 129, 56, 0.68);
+}
+
+.ball {
+  width: 300px;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 100px;
+  box-shadow: 
+  /* 바깥쪽 그림자 */ 0 0 20px #fff, 10px 10px 20px 10px purple,
+    -10px -10px 20px 0 cyan, /* 안쪽 그림자 */ inset 0 0 14px #fff,
+    inset -40px -30px 60px 0 purple, inset -40px -30px 70px 0 blue,
+    inset -40px -30px 100px 0 cyan, inset -40px -30px 140px 0 powderblue;
+  animation: glow 2s linear infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 
+  /* 바깥쪽 그림자 */ 0 0 20px #fff, 10px 10px 20px 10px purple,
+      -10px -10px 20px 0 cyan, /* 안쪽 그림자 */ inset 0 0 14px #fff,
+      inset -40px -30px 60px 0 purple, inset -40px -30px 70px 0 blue,
+      inset -40px -30px 100px 0 cyan, inset -40px -30px 140px 0 powderblue;
+  }
+  to {
+    box-shadow: 
+        /* 바깥쪽 그림자 */ 0 0 20px #fff,
+      10px 10px 20px 10px brown, -10px -10px 20px 0 green,
+      /* 안쪽 그림자 */ inset 0 0 14px #fff, inset -40px -30px 60px 0 brown,
+      inset -40px -30px 70px 0 blue, inset -40px -30px 100px 0 brown,
+      inset -40px -30px 140px 0 powderblue;
+  }
+}

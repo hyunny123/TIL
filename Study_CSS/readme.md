@@ -2,8 +2,20 @@
 
 ### TextAni
 
-![textAni](./images/textani.png)
+<img src="./images/textani.png" width="100px" heigth="100px">
+<br/>
 
 ### ScrollAni
 
-![scrollAni](./images/scrollani.png)
+<img src="./images/scrollani.png" width="100px" heigth="100px">
+<br/>
+
+### LoginFormAni
+
+<img src="./images/loginform.png"  width="100px" heigth="100px">
+<br/>
+
+### box-shadow
+
+<img src="./images/boxshadow.png" width="100px" heigth="100px">
+<br/>
