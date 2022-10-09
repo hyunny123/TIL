@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="pink-div">
+      <div class="green-div">이벤트 버블링/캡처링</div>
+    </div>
+    <script>
+      const html = document.querySelector("html");
+      const body = document.querySelector("body");
+      const greenDiv = document.querySelector(".green-div");
+      const pinkDiv = document.querySelector(".pink-div");
+
+      html.addEventListener("click", function () {
+        console.log("html");
+      });
+
+      body.addEventListener(
+        "click",
+        function () {
+          console.log("body");
+        },
+        false
+      );
+
+      pinkDiv.addEventListener(
+        "click",
+        function () {
+          console.log("pink div");
+        },
+        false
+      );
+
+      greenDiv.addEventListener(
+        "click",
+        function () {
+          console.log("green div");
+        },
+        false
+      );
+    </script>
+  </body>
+</html>

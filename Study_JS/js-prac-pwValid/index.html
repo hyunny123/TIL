@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/6273f18fd8.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="box">
+      <div class="inputBox">
+        <input
+          type="password"
+          id="pswrd"
+          placeholder="비밀번호 입력"
+          onkeyup="checkPassword(this.value)"
+        />
+        <span id="toggleBtn"></span>
+      </div>
+      <div class="validation">
+        <ul>
+          <li id="lower">소문자 1개이상</li>
+          <li id="upper">대문자 1개이상</li>
+          <li id="number">숫자 1개이상</li>
+          <li id="special">특수문자 1개이상</li>
+          <li id="length">8개 이상 문자 입력</li>
+        </ul>
+      </div>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>

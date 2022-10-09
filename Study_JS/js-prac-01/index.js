@@ -2,7 +2,7 @@
 
 // arr.forEach(console.log);
 
-conspole.log(score);
+console.log(score);
 
 score = 80;
 var score;
