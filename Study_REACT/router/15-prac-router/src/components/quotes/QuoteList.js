@@ -25,8 +25,18 @@ const QuoteList = (props) => {
 
   const sortedQuotes = sortQuotes(props.quotes, isSortingAscending);
 
+  // 좀더 복잡한 url일 경우 이렇게 하는 방법도 있다.
+  // const changeSortingHandler = () => {
+  //   history.push({
+  //     pathname: location.pathname,
+  //     search: `?sort=${isSortingAscending ? "desc" : "asc"}`,
+  //   });
+  // };
+
   const changeSortingHandler = () => {
-    history.push("/quotes?sort=" + (isSortingAscending ? "desc" : "asc"));
+    history.push(
+      `${location.pathname}?sort=${isSortingAscending ? "desc" : "asc"}`
+    );
   };
   return (
     <Fragment>
