@@ -1,13 +1,20 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   return (
     <section>
       <h1>제품 리스트</h1>
       <ul>
-        <li>마들렌</li>
-        <li>휘낭시에</li>
-        <li>까눌레</li>
+        <li>
+          <Link to="/products/p1">마들렌</Link>
+        </li>
+        <li>
+          <Link to="/products/p2">휘낭시에</Link>
+        </li>
+        <li>
+          <Link to="/products/p3">까눌레</Link>
+        </li>
       </ul>
     </section>
   );
