@@ -70,11 +70,3 @@ console.log(1 / -0);
 ### parseInt, parseFloat
 
 - 문자열을 number타입으로 변경
-
-function even(num){
-if(num % 2 ===0){
-console.log("even")
-}else{
-console.log("odd")
-}
-}
