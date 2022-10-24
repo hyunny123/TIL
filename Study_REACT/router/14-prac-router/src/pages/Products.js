@@ -1,7 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Products = () => {
+  const navigate = useNavigate();
+  navigate("/welcome", { replace: true });
   return (
     <section>
       <h1>제품 리스트</h1>
