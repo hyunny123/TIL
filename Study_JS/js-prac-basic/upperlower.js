@@ -1,3 +1,4 @@
+//대소문자 변경
 function result(a) {
   let answer = "";
   for (let x of a) {
