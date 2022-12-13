@@ -27,6 +27,7 @@ function App() {
       setThird(!third);
     }
   };
+
   const slides = [
     { url: "./images/first.png", title: "free" },
     { url: "./images/second.png", title: "love" },
@@ -52,18 +53,21 @@ function App() {
           <div>
             <input
               type="checkbox"
+              name="favorite"
               value={first}
               onChange={() => handleChange("First")}
             />
             First
             <input
               type="checkbox"
+              name="favorite"
               value={second}
               onChange={() => handleChange("Second")}
             />
             Second
             <input
               type="checkbox"
+              name="favorite"
               value={third}
               onChange={() => handleChange("Third")}
             />
