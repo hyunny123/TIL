@@ -1,56 +1,58 @@
-import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  TextInput,
-  ScrollView,
-  FlatList,
-} from "react-native";
+import { useState } from "react";
+import { StyleSheet, View, Button, FlatList } from "react-native";
+
+import GoalItem from "./components/GoalItem";
+import GoalInput from "./components/GoalInput";
 
 export default function App() {
-  const [inputValue, setInputValue] = useState("");
+  const [modalIsVisible, setModalIsVisible] = useState(false);
   const [listInputValue, setListInputValue] = useState([]);
 
-  const inputHandler = (enteredText) => {
-    //console.log(enteredText);
-    setInputValue(enteredText);
+  //모달열기
+  const startAddHandler = () => {
+    setModalIsVisible(true);
   };
-  const addValueHandler = () => {
+  //모달닫기
+  const endAddHandler = () => {
+    setModalIsVisible(false);
+  };
+
+  const addValueHandler = (inputValue) => {
     setListInputValue((currentListInputValue) => [
       ...currentListInputValue,
       { text: inputValue, id: Math.random().toString() },
     ]);
+    endAddHandler();
+  };
+
+  const deleteValueHandler = (id) => {
+    setListInputValue((currentListInputValue) => {
+      return currentListInputValue.filter((i) => i.id !== id);
+    });
   };
 
   return (
     <View style={styles.appContainer}>
-      <View style={styles.inputContainer}>
-        <TextInput
-          style={styles.textInput}
-          placeholder="할일 적기 "
-          onChangeText={inputHandler}
-        />
-        <Button style={styles.addBtn} title="추가" onPress={addValueHandler} />
-      </View>
+      <Button
+        title="새로운 할일 추가"
+        color="#2a0027"
+        onPress={startAddHandler}
+      />
+      <GoalInput
+        visible={modalIsVisible}
+        addValueHandler={addValueHandler}
+        onCancel={endAddHandler}
+      />
       <View style={styles.listContainer}>
-        {/* <ScrollView alwaysBounceVertical={false}>
-          <Text>목표 리스트</Text>
-          {listInputValue.map((i) => (
-            <View style={styles.listItem} key={i}>
-              <Text style={styles.listText}>{i}</Text>
-            </View>
-          ))}
-        </ScrollView> */}
         <FlatList
           data={listInputValue}
           renderItem={(itemData) => {
             return (
-              <View style={styles.listItem}>
-                <Text style={styles.listText}>{itemData.item.text}</Text>
-              </View>
+              <GoalItem
+                itemData={itemData}
+                deleteValueHandler={deleteValueHandler}
+                id={itemData}
+              />
             );
           }}
           keyExtractor={(item, index) => {
@@ -58,10 +60,6 @@ export default function App() {
           }}
           alwaysBounceVertical={false}
         />
-        {/* <Text>목표 리스트</Text>
-          <View style={styles.listItem} key={i}>
-            <Text style={styles.listText}>{i}</Text>
-          </View> */}
       </View>
     </View>
   );
@@ -73,32 +71,8 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     paddingHorizontal: 16,
   },
-  inputContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    paddingBottom: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
-  },
-  textInput: {
-    borderWidth: 1,
-    borderColor: "#cccccc",
-    width: "70%",
-    marginRight: 8,
-    padding: 8,
-  },
+
   listContainer: {
     flex: 4,
-  },
-  listItem: {
-    margin: 8,
-    padding: 8,
-    borderRadius: 6,
-    backgroundColor: "#2a0027",
-    color: "#f7c5f3",
-  },
-  listText: {
-    color: "#f7c5f3",
   },
 });
