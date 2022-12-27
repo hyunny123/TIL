@@ -1,11 +1,13 @@
 //실질적으로 게임을 담당하는 화면
 //휴대폰이 추측한 숫자가 정답보다 높은지 낮은지 힌트를 주는 화면
 import { useEffect, useState } from "react";
-import { View, Text, StyleSheet, Alert } from "react-native";
+import { View, StyleSheet, Alert } from "react-native";
 
 import NumberContainer from "../components/game/NumberContainer";
 import Title from "../components/ui/Title";
 import PrimaryButton from "../components/ui/PrimaryButton";
+import Card from "../components/ui/Card";
+import InstructionText from "../components/ui/InstructionText";
 
 function generateRandomBetween(min, max, exclude) {
   const rndNum = Math.floor(Math.random() * (max - min)) + min;
@@ -62,17 +64,23 @@ const GameScreen = ({ userNumber, onGameOver }) => {
     <View style={styles.screen}>
       <Title>상대방의 추측</Title>
       <NumberContainer>{currentGuess}</NumberContainer>
-      <View>
-        <Text>더 큰가? or 더 작은가?</Text>
-        <View>
-          <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
-            +
-          </PrimaryButton>
-          <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
-            -
-          </PrimaryButton>
+      <Card>
+        <InstructionText style={styles.instructionText}>
+          더 큰가? or 더 작은가?
+        </InstructionText>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, "greater")}>
+              +
+            </PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={nextGuessHandler.bind(this, "lower")}>
+              -
+            </PrimaryButton>
+          </View>
         </View>
-      </View>
+      </Card>
       {/* <View>로그</View> */}
     </View>
   );
@@ -84,5 +92,14 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 24,
+  },
+  instructionText: {
+    marginBottom: 12,
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+  },
+  buttonContainer: {
+    flex: 1,
   },
 });
