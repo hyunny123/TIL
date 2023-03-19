@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Seo from "../../components/Seo";
 import styles from "./index.module.css";
@@ -11,15 +13,42 @@ export default function Home({ results }) {
   //     setMovies(results);
   //   })();
   // }, []);
+  // console.log(results);
+  const router = useRouter();
+  const onClick = (id, title) =>
+    router.push(
+      {
+        pathname: `/movies/${id}`,
+        query: {
+          title,
+        },
+      },
+      `/movies/${id}`
+    );
   return (
     <div className={styles.container}>
       <Seo title="Home" />
-      {/* <h1>Welcome!HomePage</h1> */}
-      {/* {!movies && <h4>Loading...</h4>} */}
+
       {results?.map((movie) => (
-        <div className={styles.movie} key={movie.id}>
+        <div
+          onClick={() => onClick(movie.id, movie.original_title)}
+          className={styles.movie}
+          key={movie.id}
+        >
           <img src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} />
-          <h4>{movie.original_title}</h4>
+          <h4>
+            <Link
+              href={{
+                pathname: `/movies/${movie.id}`,
+                query: {
+                  title: movie.original_title,
+                },
+              }}
+              as={`/movies/${movie.id}`}
+            >
+              {movie.original_title}
+            </Link>
+          </h4>
         </div>
       ))}
     </div>
