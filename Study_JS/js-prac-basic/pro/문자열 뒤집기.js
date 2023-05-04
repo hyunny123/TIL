@@ -4,3 +4,8 @@ function solution(my_string) {
   const answer = reverse_word.join("");
   return answer;
 }
+
+
+function solution(my_string) {
+    return my_string.split("").reverse().join("");
+  }
