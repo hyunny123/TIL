@@ -47,7 +47,6 @@ h1.loading {
   40% {
     opacity: 0;
   }
-
   50% {
     opacity: 1;
   }
@@ -74,5 +73,45 @@ h1.loading {
 
   100% {
     opacity: 1;
+  }
+}
+
+.bouncing_ball {
+  height: 12rem;
+  width: 4rem;
+  margin: 0 auto;
+  /* border: 1px solid #ddd; */
+  position: relative;
+}
+
+.ball {
+  width: 4rem;
+  height: 4rem;
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  animation: bbounce 1s infinite;
+}
+
+@keyframes bbounce {
+  0% {
+    top: 0rem;
+    animation-timing-function: ease-in;
+  }
+  34% {
+    transform: scale(1);
+  }
+  35% {
+    top: 8rem;
+    transform: scale(1.2, 0.8);
+    animation-timing-function: ease-out;
+  }
+  45% {
+    transform: scale(1);
+  }
+
+  100% {
+    top: 0rem;
   }
 }
