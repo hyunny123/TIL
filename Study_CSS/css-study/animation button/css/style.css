@@ -32,7 +32,7 @@ button {
   padding: 0.85em 0.75em;
   margin: 1rem;
   position: relative;
-  /* overflow: hidden; */
+  overflow: hidden;
   z-index: 1;
 }
 
@@ -79,4 +79,52 @@ button:after {
 
 .slide_from_bottom:after {
   transform: translateY(100%);
+}
+
+/* button[class^="grow"]{
+    overflow: hidden;
+} */
+.grow_box::after {
+  transform: scale(0);
+}
+
+.grow_box:hover::after {
+  transform: scale(1);
+}
+.grow_ellipse {
+  overflow: hidden;
+}
+.grow_ellipse:after {
+  /* 반대로 생각해보기  */
+  transform: scale(0);
+  border-radius: 50%;
+  left: -20%;
+  right: -20%;
+  top: -50%;
+  bottom: -50%;
+}
+
+.grow_ellipse:hover:after {
+  transform: scale(2);
+}
+
+.grow_skew_forward:after {
+  transform: skewX(-45deg) scaleX(0);
+  left: -20%;
+  right: -20%;
+}
+
+.grow_skew_forward:after {
+  transform: skewX(-45deg) scaleX(0);
+  left: -20%;
+  right: -20%;
+}
+
+.grow_skew_backward:after {
+  transform: skewX(45deg) scaleX(0);
+  left: -20%;
+  right: -20%;
+}
+.grow_spin:after {
+  transform: rotate(-180deg) scale(0);
 }
