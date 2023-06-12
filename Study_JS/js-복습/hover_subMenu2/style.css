@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  list-style: none;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+body {
+  background: green;
+  overflow-y: scroll;
+}
+header {
+  margin-top: 20px;
+  background: #ccc;
+  height: 50px;
+  /* 	background */
+  background: linear-gradient(
+    to bottom,
+    #ccc 50px,
+    rgba(255, 255, 255, 0.5) 50px
+  );
+  overflow: hidden;
+  transition: height 0.3s;
+}
+
+nav {
+  width: 960px;
+  margin: 0 auto;
+}
+nav > ul > li {
+  float: left;
+  line-height: 50px;
+  padding-right: 40px;
+  position: relative;
+}
+/* display: none; */
+nav > ul > li ul {
+  width: 100%;
+  position: absolute;
+}
+nav > ul > li ul li {
+  white-space: nowrap;
+}
+
+nav > ul > li:hover ul {
+  display: block;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  list-style: none;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+body {
+  background: green;
+  overflow-y: scroll;
+}
+header {
+  margin-top: 20px;
+  background: #ccc;
+  height: 50px;
+  /* 	background */
+  background: linear-gradient(
+    to bottom,
+    #ccc 50px,
+    rgba(255, 255, 255, 0.5) 50px
+  );
+  overflow: hidden;
+  transition: height 0.3s;
+}
+
+nav {
+  width: 960px;
+  margin: 0 auto;
+}
+nav > ul > li {
+  float: left;
+  line-height: 50px;
+  padding-right: 40px;
+  position: relative;
+}
+/* display: none; */
+nav > ul > li ul {
+  width: 100%;
+  position: absolute;
+}
+nav > ul > li ul li {
+  white-space: nowrap;
+}
+
+nav > ul > li:hover ul {
+  display: block;
+}
