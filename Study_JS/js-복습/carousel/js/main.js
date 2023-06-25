@@ -38,6 +38,7 @@ function moveSlide(num) {
 
 moveSlide(0);
 
+//버튼 클릭시 슬라이드 무브
 nextBtn.addEventListener("click", () => {
   if (currentSlideIdx < slideCount - 1) {
     moveSlide(currentSlideIdx + 1);
@@ -50,4 +51,22 @@ prevBtn.addEventListener("click", () => {
   }
 });
 
+//자동 슬라이드
+function autoSlide() {
+  timer = setInterval(() => {
+    let nextIdx = (currentSlideIdx + 1) % slideCount;
+    moveSlide(nextIdx);
+  }, 3000);
+}
+
+autoSlide();
+//마우스가 slideWrapper에 over 하거나 out했을시 자동슬라이드 멈추기
+
+slideWrapper.addEventListener("mouseover",()=>{
+    clearInterval(timer);
+})
+
+slideWrapper.addEventListener("mouseout",()=>{
+    autoSlide();
+})
 
