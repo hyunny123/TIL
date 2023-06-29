@@ -1,0 +1,37 @@
+form {
+  margin: 5em auto;
+  width: 100px;
+}
+label {
+  width: 100px;
+  height: 50px;
+  border-radius: 25px;
+  background: #ebebeb;
+  display: block;
+  text-indent: -9999em;
+  position: relative;
+}
+label:after {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  background: #a5cace;
+  border-radius: 50%;
+  transition: 0.4s ease-in;
+}
+#wifi {
+  display: none;
+}
+
+#wifi:checked ~ label {
+  background: #96e7ef;
+}
+
+#wifi:checked ~ label:after {
+  background: #1d6269;
+  /*   transform: translateX(48px); */
+  left: 55px;
+}
