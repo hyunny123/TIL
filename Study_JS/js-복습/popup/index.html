@@ -1,0 +1,159 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>popup</title>
+    <style>
+      .popup {
+        position: fixed;
+        left: 100px;
+        top: 100px;
+        border: 1px solid #ebebeb;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        padding: 20px 40px;
+        border-radius: 10px;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>popup</h1>
+    <dialog class="popup">
+      <h2>popup 창</h2>
+      <label for="daycheck">오늘 하루동안 열지않기</label>
+      <input type="checkbox" id="daycheck" />
+      <button type="button" id="close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </dialog>
+    <script>
+      let popup = document.querySelector(".popup");
+      let closedBtn = popup.querySelector("#close");
+      //체크되어있는지 여부 확인
+      let dayCheck = popup.querySelector("#daycheck");
+
+      //쿠키생성함수 setCookie
+      function setCookie(name, value, day) {
+        let date = new Date();
+        date.setDate(date.getDate() + day);
+        document.cookie = `${name}=${value};expires=${date.toUTCString()}`;
+      }
+      //"ABC", 'home',7 쿠키 생성
+      setCookie("ABC", "home", 1);
+
+      //쿠키확인
+      //쿠키가 여러개 있다면 하나씩 확인하기
+      function cookieCheck(name) {
+        let cookieArr = document.cookie.split(";");
+        //체크가 되었다면 방문이 된사람 확인 /팝업의 모양을 보일지 말지
+        let visited = false;
+        for (let cookie of cookieArr) {
+          if (cookie.search(name) > -1) {
+            visited = true;
+            break;
+          }
+        }
+        //만약 visite의 값이 false라면 dialog가 보인다.
+        if (!visited) {
+          popup.setAttribute("open", "");
+        }
+      } //cookieCheck
+      cookieCheck("ABC");
+
+      closedBtn.addEventListener("click", () => {
+        popup.removeAttribute("open");
+        if (dayCheck.checked) {
+          setCookie("ABC", "home", 1);
+        } else {
+          setCookie("ABC", "home", -1);
+        }
+      });
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ABC Corp</title>
+    <style>
+      .popup {
+        position: fixed;
+        left: 100px;
+        top: 100px;
+        border: 1px solid #ebebeb;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        padding: 20px 40px;
+        border-radius: 10px;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ABC Corp</h1>
+
+    <dialog class="popup">
+      <h2>dialog</h2>
+      <label for="daycheck">오늘 하루 안보기</label>
+      <input type="checkbox" id="daycheck" />
+      <button type="button" id="close">Close</button>
+    </dialog>
+
+    <script>
+      let popup = document.querySelector(".popup"),
+        closeBtn = popup.querySelector("#close"),
+        dayCheck = popup.querySelector("#daycheck");
+
+      //쿠키생성 함수 setCookie
+      function setCookie(name, value, day) {
+        let date = new Date();
+        date.setDate(date.getDate() + day);
+        document.cookie = `${name}=${value};expires=${date.toUTCString()}`;
+      }
+      //'ABC','home', 7 쿠키 생성
+      //setCookie('ABC','home', 1);
+
+      //쿠키 확인
+      function cookieCheck(name) {
+        let cookieArr = document.cookie.split(";");
+        let visited = false;
+
+        for (let cookie of cookieArr) {
+          if (cookie.search(name) > -1) {
+            visited = true;
+            break;
+          }
+        }
+        //만약 visited의 값이 false라면 dialog가 보인다
+        if (!visited) {
+          popup.setAttribute("open", "");
+        }
+      } //cookieCheck
+      cookieCheck("ABC");
+  //클로즈 버튼을 누르면 팝업을 닫는다.
+  //만약 오늘 하루 안보기를 체크되었다면 쿠키를 생성해라
+  //아니면 쿠키 제거
+      closeBtn.addEventListener("click", () => {
+        popup.removeAttribute("open");
+        if (dayCheck.checked) {
+          setCookie("ABC", "home", 1);
+        } else {
+          setCookie("ABC", "home", -1);
+        }
+      });
+    </script>
+  </body>
+</html>
+
+
