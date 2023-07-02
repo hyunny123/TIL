@@ -16,26 +16,27 @@ switchImg 함수를 만들어서 hide클래스를 추가하고
 
 let mainHeader = document.querySelector("#main-header");
 let logo = document.querySelector("#logo");
-let big = 'images/logo-shrink.svg';
-let small = 'images/logo.svg';
+let big = "images/logo-shrink.svg";
+let small = "images/logo.svg";
 
-window.addEventListener("scroll",()=>{
-    if(window.scrollY> 0){
-      if(!mainHeader.classList.contains("shrink")){
-          mainHeader.classList.add("shrink");
-      }
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 0) {
+    if (!mainHeader.classList.contains("shrink")) {
+      mainHeader.classList.add("shrink");
+      switchImg(big);
+    }
+  } else {
+    if (mainHeader.classList.contains("shrink")) {
+      mainHeader.classList.remove("shrink");
+      switchImg(small);
+    }
+  }
+});
 
-    }else{
-        if(mainHeader.classList.contains("shrink")){
-            mainHeader.classList.remove("shrink");
-        }
-    }  
-})
-
-function switchImg(newImgPath){
-    logo.classList.add("hide");
-    setTimeout(()=>{
-        logo.setAttribute("src",newImgPath);
-        logo.classList.remove("hide");
-    },300);
+function switchImg(newImgPath) {
+  logo.classList.add("hide");
+  setTimeout(() => {
+    logo.setAttribute("src", newImgPath);
+    logo.classList.remove("hide");
+  }, 300);
 }
