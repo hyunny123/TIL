@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        background-color: #000;
+        width: 100%;
+        overflow-x: hidden;
+      }
+      .cover {
+        width: 100vw;
+        margin-bottom: 10rem;
+        display: flex;
+      }
+
+      .cover:nth-child(1) {
+        margin-top: 5vh;
+        transform: rotate(-2deg);
+        background-color: #ff3796;
+      }
+
+      .cover:nth-child(2) {
+        transform: rotate(2deg);
+        background-color: #5800ff;
+        justify-content: flex-end;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover">
+      <p class="first-parallel"></p>
+    </div>
+    <div class="cover">
+      <p class="second-parallel"></p>
+    </div>
+    <script>
+      const pTag1 = document.querySelector(".first-parallel");
+      const pTag2 = document.querySelector(".second-parallel");
+
+      const textArr1 =
+        "hello newjeans let's gram!!hello newjeans let's gram!!hello newjeans let's gram!!hello newjeans let's gram!!hello newjeans let's gramhello newjeans let's gramhello newjeans let's gramhello newjeans let's gramhello newjeans let's gram".split(
+          " "
+        );
+      const textArr2 =
+        "hello newjeans let's gram!!hello newjeans let's gram!!hello newjeans let's gram!!hello newjeans let's gram!!hello newjeans let's gramhello newjeans let's gramhello newjeans let's gramhello newjeans let's gramhello newjeans let's gram".split(
+          " "
+        );
+
+      function initTexts(el, textArr) {
+        textArr.push(...textArr);
+        for (let i = 0; i < textArr.length; i++) {
+          el.innerText += `${textArr[i]}\u00A0\u00A0\u00A0\u00A0`;
+        }
+      }
+      initTexts(pTag1, textArr1);
+      initTexts(pTag2, textArr2);
+
+      let count1 = 0;
+      let count2 = 0;
+
+      function marqueeText(count, el, direction) {
+        if (count > el.scrollWidth / 2) {
+          el.style.transform = `translate(0)`;
+          count = 0;
+        }
+        el.style.transform = `translateX(${count * direction}px)`;
+        return count;
+      }
+
+      function animate() {
+        count1++;
+        count2++;
+
+        count1 = marqueeText(count1, pTag1, -1);
+        count2 = marqueeText(count2, pTag2, -1);
+
+        window.requestAnimationFrame(animate);
+      }
+      animate();
+
+      window.addEventListener("scroll", function () {
+        count1 += 15;
+        count2 += 15;
+      });
+    </script>
+  </body>
+</html>
