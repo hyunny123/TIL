@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Number Animation</title>
+  <style>
+    .rate{
+      height: 25px;
+      position: relative;
+      border:2px solid #ccc;
+    }
+    .rate .bar{
+      position: absolute;
+      left: 0;top: 0;bottom: 0;
+      width: 0;
+      background: #3498db;
+    }
+    .rate span{
+      position: absolute;
+      right: 20px; top: 0; bottom: 0; line-height: 25px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="rate" data-num="45">
+    <div class="bar"></div>
+    <span>0</span>
+  </div>
+  <script>
+    let rate = document.querySelector('.rate'), //.rate
+        bar = rate.querySelector('.bar'), //.bar
+        span = rate.querySelector('span'), //
+        num = 0, //시작 숫자
+        // targetNum = rate.getAttribute('data-num');// data-num
+        targetNum = Number(rate.dataset.num);// data-num
+        console.log(targetNum);
+
+        let animation = setInterval(()=>{
+          span.innerText = ++num;
+          if(targetNum === num){
+            clearInterval(animation);
+          }
+          //bar의 너비를 변경
+          bar.style.width = num + '%';
+        }, 10);       
+  </script>
+</body>
+</html>
