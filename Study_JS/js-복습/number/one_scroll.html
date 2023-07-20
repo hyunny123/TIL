@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Animation</title>
+    <style>
+      .rate {
+        height: 25px;
+        position: relative;
+        border: 2px solid #ccc;
+      }
+      .rate .bar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        background: #3498db;
+      }
+      .rate span {
+        position: absolute;
+        right: 20px;
+        top: 0;
+        bottom: 0;
+        line-height: 25px;
+        font-weight: bold;
+      }
+      section {
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h2>content title</h2>
+    </section>
+    <div class="rate" data-num="45">
+      <div class="bar"></div>
+      <span>0</span>
+    </div>
+    <section>
+      <h2>content title</h2>
+    </section>
+    <script>
+      let rate = document.querySelector(".rate"), //.rate
+        rateOST = rate.offsetTop - 500,
+        bar = rate.querySelector(".bar"), //.bar
+        span = rate.querySelector("span"), //
+        num = 0, //시작 숫자
+        myswitch = false,
+        targetNum = Number(rate.dataset.num); // data-num
+
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > rateOST) {
+          if (myswitch == false) {
+            let animation = setInterval(() => {
+              span.innerText = ++num;
+              if (targetNum === num) {
+                clearInterval(animation);
+              }
+              //bar의 너비를 변경
+              bar.style.width = num + "%";
+            }, 10);
+            myswitch = true;
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
