@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --button-color: 107, 93, 227;
+        --angle: 120deg;
+        --body-bg: linear-gradient(var(--angle), #e0c3f0, #8ec5fc);
+        --card-bg: white url("https://assets.codepen.io/17119/pencil.png") right
+          bottom no-repeat;
+      }
+
+      body {
+        background-image: var(--body-bg);
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        background-color: #ececec;
+        line-height: 1.35;
+      }
+
+      .card {
+        max-width: 30rem;
+        background: var(--card-bg);
+        padding: 3rem;
+      }
+
+      .btn {
+        background-color: rgb(var(--button-color));
+        display: inline-block;
+        color: white;
+        padding: 1rem 2.5rem;
+        text-decoration: none;
+        border-radius: 100px;
+      }
+
+      .btn:hover {
+        background-color: rgba(var(--button-color), 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>This is a title</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim aspernatur
+        ex harum deserunt.
+      </p>
+
+      <a href="#" class="btn">Close window</a>
+    </div>
+  </body>
+</html>
