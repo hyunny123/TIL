@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        height: 100vh;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn {
+        --padding-size: 1rem;
+        --font-size: 16px;
+        --color-h: 250;
+        --color-s: 80%;
+        --color-l: 50%;
+
+        background-color: hsl(var(--color-h), var(--color-s), var(--color-l));
+        color: white;
+        text-decoration: none;
+        border-radius: 3px;
+        padding: var(--padding-size);
+        font-size: var(--font-size);
+      }
+
+      .btn:hover {
+        --color-l: 70%;
+      }
+
+      .btn:focus {
+        --color-l: 5%;
+      }
+
+      .btn-small {
+        --font-size: 14px;
+        --padding-size: 0.5rem;
+      }
+
+      .btn-large {
+        --font-size: 25px;
+        --padding-size: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="#" class="btn btn-small">LINK</a>
+    <a href="#" class="btn">LINK</a>
+    <a href="#" class="btn btn-large">LINK</a>
+  </body>
+</html>
